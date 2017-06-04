@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <title>Casino Gamesp</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/game.controller.js" th:src="@{/app/game.controller.js}"></script>
+    <script type="text/javascript" src="/static/app/view.controller.js" th:src="@{/app/view.controller.js}"></script>
+</head>
+<body ng-app="app" ng-controller="GameController as vm">
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Casino Games</a>
+            </div>
+            <p class="navbar-text navbar-right" style="margin-right: 10px;">  credits</p>
+            <p class="navbar-text navbar-right" id="credits" th:text="${credits}" style="margin-right: 10px;">0</p>
+            <p class="navbar-text navbar-right" style="margin-right: 10px;"> with </p>
+            <p class="navbar-text navbar-right" id="username"  th:text="${username}" style="margin-right: 10px;">Anonymus</p>
+            <p class="navbar-text navbar-right" style="margin-right: 10px;">Signed in as</p>
+        </div>
+    </nav>
+</header>
+<div>
+    <div id="boardDiv" style="float: left; z-index: -1;">
+        {{vm.board}}
+    </div>
+    <div id="info" style="float: left;">
+
+    </div>
+</div>
+<div style="clear: both;">
+    <button class="btn btn-danger" ng-click="vm.back()">Back</button>
+    <button class="btn btn-danger" ng-click="vm.nextSpin()">Next Spin</button>
+</div>
+
+<div>
+    {{vm.players}}
+</div>
+</body>
+</html>

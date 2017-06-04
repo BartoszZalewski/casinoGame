@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Casino Games</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/view.controller.js" th:src="@{/app/view.controller.js}"></script>
+</head>
+<body ng-app="app" ng-controller="ViewController as con">
+
+
+<div class="center-div">
+    <h3>Wprowadz nazwe uzytkownika</h3>
+    <input type="text" id="myText" value=""> </input>
+    <button ng-click="con.play()" type="button" class="btn btn-default">Wejdz do gry</button>
+</div>
+
+
+</body>
+</html>
