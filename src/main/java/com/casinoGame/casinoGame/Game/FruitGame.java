@@ -7,6 +7,7 @@ import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
 import com.casinoGame.casinoGame.Validations.Validation;
 import com.casinoGame.casinoGame.Validations.VerticalLineValidation;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,7 +68,6 @@ public class FruitGame extends Game{
                 new SymbolLine(7, 3, 60)
         );
 
-        List<Integer> jokers = new ArrayList<>();
 
         List<Validation> validations = Collections.singletonList(
                 new VerticalLineValidation(
@@ -81,12 +81,20 @@ public class FruitGame extends Game{
                 )
         );
 
-        List<SpecialSymbol> specialSymbols = new ArrayList<>();
+        List<Integer> bets = Arrays.asList(1, 2, 5, 10, 20, 50, 100, 200, 500);
 
-        BoardDefinition boardDefinition = new BoardDefinition(3, 3, lines, validations, symbolLines, jokers, specialSymbols);
 
-        Game game = new Game(NAME, PAGE, new FruitGameLogic(boardDefinition));
-        return game;
+        BoardDefinition boardDefinition = new BoardDefinition.Builder(3, 3)
+                .withLines(lines)
+                .withSymbols(symbolLines)
+                .withValidations(validations)
+                .withBets(bets)
+                .build();
+
+
+        System.out.println(new Gson().toJson(boardDefinition));
+
+        return new Game(NAME, PAGE, new FruitGameLogic(boardDefinition));
     }
 
     @RequestMapping(value = "/" + PAGE +"/{name}")
@@ -96,6 +104,8 @@ public class FruitGame extends Game{
         Player player = session.getPlayer();
         model.addAttribute("username", name);
         model.addAttribute("credits", player.getCredits());
+        model.addAttribute("bets", session.getGame().getBets());
+        model.addAttribute("board", new Gson().toJson(session.getGame().getDefaultBoard()));
         return PAGE;
     }
 

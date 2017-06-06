@@ -7,15 +7,21 @@ import java.util.List;
 
 public class Spin {
     private final int [][] board;
-    private final List<Event> events;
+    private List<Event> events;
     public final int win;
     public final int lose;
+    public final int bet;
 
-    public Spin(int[][] board, List<Event> events, int win, int lose) {
+    public Spin(int[][] board, List<Event> events, int win, int lose, int bet) {
         this.board = Arrays.copyOf(board,board.length);
         this.events = events;
         this.win = win;
         this.lose = lose;
+        this.bet = bet;
+    }
+
+    public void addEvent(Event event) {
+        events.add(event);
     }
 
     @Override

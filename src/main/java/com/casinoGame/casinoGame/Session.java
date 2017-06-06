@@ -1,14 +1,7 @@
 package com.casinoGame.casinoGame;
 
-import com.casinoGame.casinoGame.Core.Game;
+import com.casinoGame.casinoGame.Game.Game;
 import com.casinoGame.casinoGame.Core.Player;
-import com.casinoGame.casinoGame.Core.Spin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Random;
 
 public class Session {
 
@@ -16,6 +9,7 @@ public class Session {
     private Game currentGame;
 
     public Session(){
+
     }
 
     public Session(Player player){
@@ -34,4 +28,21 @@ public class Session {
         return currentGame;
     }
 
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Session session = (Session) o;
+
+        return player != null ? player.equals(session.player) : session.player == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return player != null ? player.hashCode() : 0;
+    }
 }

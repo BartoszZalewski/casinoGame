@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="983.34776119403" y="134.0">com.casinoGame.casinoGame.Core.LineDefinition</node>
+    <node x="1353.6921019900497" y="868.0">com.casinoGame.casinoGame.Core.Game</node>
+    <node x="771.3094171997154" y="1163.0">com.casinoGame.casinoGame.Game.BombGame</node>
+    <node x="428.5554060056854" y="156.0">com.casinoGame.casinoGame.Validations.Validation</node>
+    <node x="2067.6144278606967" y="879.0">com.casinoGame.casinoGame.Core.Player</node>
+    <node x="143.79023187633243" y="395.0">com.casinoGame.casinoGame.Validations.HorizontalLineValidation</node>
+    <node x="1384.1921019900497" y="1163.0">com.casinoGame.casinoGame.Game.FruitGame</node>
+    <node x="1397.1762393390188" y="351.0">com.casinoGame.casinoGame.Core.Event</node>
+    <node x="313.2902318763324" y="890.0">com.casinoGame.casinoGame.Validations.VerticalLineValidation</node>
+    <node x="1984.5298152096657" y="1163.0">com.casinoGame.casinoGame.Session</node>
+    <node x="1867.776083866382" y="901.0">com.casinoGame.casinoGame.GameLogic.FruitGameLogic</node>
+    <node x="567.65625" y="123.0">com.casinoGame.casinoGame.Core.SymbolLine</node>
+    <node x="838.34776119403" y="134.0">com.casinoGame.casinoGame.Core.SpecialSymbol</node>
+    <node x="261.0" y="1382.0">com.casinoGame.casinoGame.CasinoGameApplication</node>
+    <node x="696.9985652096657" y="603.0">com.casinoGame.casinoGame.Core.BoardDefinition.Builder</node>
+    <node x="0.0" y="1163.0">com.casinoGame.casinoGame.Game.SpaceGame</node>
+    <node x="1022.3735652096657" y="901.0">com.casinoGame.casinoGame.GameLogic.BombGameLogic</node>
+    <node x="534.03125" y="0.0">com.casinoGame.casinoGame.Core.Point</node>
+    <node x="641.2902318763324" y="318.0">com.casinoGame.casinoGame.Core.BoardDefinition</node>
+    <node x="1026.6844171997154" y="1286.0">com.casinoGame.casinoGame.GameRepository</node>
+    <node x="1929.5298152096657" y="1286.0">com.casinoGame.casinoGame.SessionRepository</node>
+    <node x="1082.2485652096657" y="669.0">com.casinoGame.casinoGame.GameLogic.Logic</node>
+    <node x="2137.5298152096657" y="1297.0">com.casinoGame.casinoGame.ViewController</node>
+    <node x="1360.2485652096657" y="625.0">com.casinoGame.casinoGame.Jackpot.Jackpot</node>
+    <node x="0.0" y="1382.0">com.casinoGame.casinoGame.ValuesService</node>
+    <node x="1613.2485652096657" y="636.0">com.casinoGame.casinoGame.Core.Spin</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.casinoGame.casinoGame.Core.Game" target="com.casinoGame.casinoGame.GameLogic.Logic">
+      <point x="-43.25" y="-47.5" />
+      <point x="1396.9421019900497" y="848.0" />
+      <point x="1211.2485652096657" y="848.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Core.Game">
+      <point x="68.6875" y="-36.5" />
+      <point x="918.4969171997154" y="1063.0" />
+      <point x="1429.3796019900497" y="1063.0" />
+      <point x="-10.8125" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.FruitGameLogic" target="com.casinoGame.casinoGame.GameLogic.Logic">
+      <point x="-33.0" y="-14.5" />
+      <point x="1900.776083866382" y="828.0" />
+      <point x="1297.2485652096657" y="828.0" />
+      <point x="86.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition" target="com.casinoGame.casinoGame.Core.SpecialSymbol">
+      <point x="34.0" y="-102.5" />
+      <point x="811.2902318763324" y="298.0" />
+      <point x="869.59776119403" y="298.0" />
+      <point x="-31.25" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.Game" target="com.casinoGame.casinoGame.Core.Spin">
+      <point x="43.25" y="-47.5" />
+      <point x="1483.4421019900497" y="848.0" />
+      <point x="1719.7485652096657" y="848.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition" target="com.casinoGame.casinoGame.Core.SymbolLine">
+      <point x="-34.0" y="-102.5" />
+      <point x="743.2902318763324" y="268.0" />
+      <point x="662.85625" y="268.0" />
+      <point x="27.200000000000045" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Validations.VerticalLineValidation">
+      <point x="-49.0625" y="-36.5" />
+      <point x="800.7469171997154" y="1003.0" />
+      <point x="461.2902318763324" y="1003.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.ViewController" target="com.casinoGame.casinoGame.Core.Player">
+      <point x="31.5" y="-14.5" />
+      <point x="2232.0298152096657" y="1143.0" />
+      <point x="2200.3644278606967" y="1143.0" />
+      <point x="44.25" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Core.SymbolLine">
+      <point x="-29.4375" y="-36.5" />
+      <point x="820.3719171997154" y="993.0" />
+      <point x="619.7902318763324" y="993.0" />
+      <point x="619.7902318763324" y="298.0" />
+      <point x="608.45625" y="298.0" />
+      <point x="-27.200000000000045" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Core.BoardDefinition.Builder">
+      <point x="-9.8125" y="-36.5" />
+      <point x="839.9969171997154" y="1023.0" />
+      <point x="832.9985652096657" y="1023.0" />
+      <point x="0.0" y="102.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.GameLogic.BombGameLogic">
+      <point x="29.4375" y="-36.5" />
+      <point x="879.2469171997154" y="1023.0" />
+      <point x="1092.3735652096657" y="1023.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.GameLogic.FruitGameLogic">
+      <point x="29.4375" y="-36.5" />
+      <point x="1492.1296019900497" y="1123.0" />
+      <point x="1933.776083866382" y="1123.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="108.79999999999995" y="-102.5" />
+      <point x="941.7985652096656" y="583.0" />
+      <point x="987.5235652096658" y="583.0" />
+      <point x="987.5235652096658" y="288.0" />
+      <point x="1034.1810945273633" y="288.0" />
+      <point x="-10.166666666666742" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.Logic" target="com.casinoGame.casinoGame.Core.Event">
+      <point x="64.5" y="-36.5" />
+      <point x="1275.7485652096657" y="583.0" />
+      <point x="1456.8762393390189" y="583.0" />
+      <point x="-39.799999999999955" y="69.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Validations.VerticalLineValidation">
+      <point x="-68.6875" y="-36.5" />
+      <point x="1394.0046019900497" y="983.0" />
+      <point x="559.9568985429992" y="983.0" />
+      <point x="98.66666666666674" y="25.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Core.Point">
+      <point x="68.6875" y="-36.5" />
+      <point x="1531.3796019900497" y="1143.0" />
+      <point x="2026.1094171997154" y="1143.0" />
+      <point x="2026.1094171997154" y="93.0" />
+      <point x="631.15625" y="93.0" />
+      <point x="41.625" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="49.0625" y="-36.5" />
+      <point x="1511.7546019900497" y="1133.0" />
+      <point x="2010.276083866382" y="1133.0" />
+      <point x="2010.276083866382" y="238.0" />
+      <point x="1095.1810945273633" y="238.0" />
+      <point x="50.83333333333326" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.LineDefinition" target="com.casinoGame.casinoGame.Core.Point">
+      <point x="0.0" y="-36.5" />
+      <point x="1044.34776119403" y="103.0" />
+      <point x="603.40625" y="103.0" />
+      <point x="13.875" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Core.Point">
+      <point x="-67.28571428571433" y="-36.5" />
+      <point x="11.214285714285666" y="1143.0" />
+      <point x="28.357142857142662" y="1143.0" />
+      <point x="28.357142857142662" y="93.0" />
+      <point x="547.90625" y="93.0" />
+      <point x="-41.625" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Validations.HorizontalLineValidation" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="-25.5" />
+      <point x="291.7902318763324" y="298.0" />
+      <point x="441.1804060056854" y="298.0" />
+      <point x="-37.875" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Session" target="com.casinoGame.casinoGame.Core.Player">
+      <point x="39.0" y="-36.5" />
+      <point x="2101.5298152096657" y="1143.0" />
+      <point x="2111.8644278606967" y="1143.0" />
+      <point x="-44.25" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="-102.0" y="-102.5" />
+      <point x="675.2902318763324" y="278.0" />
+      <point x="516.9304060056854" y="278.0" />
+      <point x="37.875" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="102.0" y="-102.5" />
+      <point x="879.2902318763324" y="268.0" />
+      <point x="993.5144278606965" y="268.0" />
+      <point x="-50.83333333333337" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.BombGameLogic" target="com.casinoGame.casinoGame.GameLogic.Logic">
+      <point x="35.0" y="-14.5" />
+      <point x="1127.3735652096657" y="848.0" />
+      <point x="1125.2485652096657" y="848.0" />
+      <point x="-86.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Core.BoardDefinition">
+      <point x="0.0" y="-102.5" />
+      <point x="832.9985652096657" y="543.0" />
+      <point x="709.2902318763324" y="543.0" />
+      <point x="-68.0" y="102.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Core.BoardDefinition.Builder">
+      <point x="0.0" y="-36.5" />
+      <point x="78.5" y="1143.0" />
+      <point x="61.35714285714266" y="1143.0" />
+      <point x="61.35714285714266" y="848.0" />
+      <point x="742.3318985429992" y="848.0" />
+      <point x="-90.66666666666663" y="102.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.FruitGameLogic" target="com.casinoGame.casinoGame.Core.Event">
+      <point x="33.0" y="-14.5" />
+      <point x="1966.776083866382" y="573.0" />
+      <point x="1576.276239339019" y="573.0" />
+      <point x="79.6000000000002" y="69.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Session" target="com.casinoGame.casinoGame.Core.Game">
+      <point x="-39.0" y="-36.5" />
+      <point x="2023.5298152096657" y="1093.0" />
+      <point x="1515.8796019900497" y="1093.0" />
+      <point x="75.6875" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.Spin" target="com.casinoGame.casinoGame.Core.Event">
+      <point x="0.0" y="-69.5" />
+      <point x="1719.7485652096657" y="583.0" />
+      <point x="1536.4762393390188" y="583.0" />
+      <point x="39.799999999999955" y="69.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="9.8125" y="-36.5" />
+      <point x="859.6219171997154" y="1013.0" />
+      <point x="1011.8735652096657" y="1013.0" />
+      <point x="1011.8735652096657" y="298.0" />
+      <point x="1054.5144278606967" y="298.0" />
+      <point x="10.166666666666742" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.SessionRepository" target="com.casinoGame.casinoGame.Session">
+      <point x="0.0" y="-25.5" />
+      <point x="-39.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Validations.VerticalLineValidation">
+      <point x="22.428571428571416" y="-36.5" />
+      <point x="100.92857142857144" y="1023.0" />
+      <point x="362.6235652096657" y="1023.0" />
+      <point x="-98.66666666666669" y="25.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Validations.VerticalLineValidation" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="-25.5" />
+      <point x="461.2902318763324" y="288.0" />
+      <point x="466.4304060056854" y="288.0" />
+      <point x="-12.625" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.Logic" target="com.casinoGame.casinoGame.Core.BoardDefinition">
+      <point x="-64.5" y="-36.5" />
+      <point x="1146.7485652096657" y="553.0" />
+      <point x="845.2902318763324" y="553.0" />
+      <point x="68.0" y="102.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Jackpot.Jackpot" target="com.casinoGame.casinoGame.Core.Event">
+      <point x="0.0" y="-80.5" />
+      <point x="1476.7485652096657" y="583.0" />
+      <point x="1496.6762393390188" y="583.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.ViewController" target="com.casinoGame.casinoGame.Session">
+      <point x="-31.5" y="-14.5" />
+      <point x="2169.0298152096657" y="1266.0" />
+      <point x="2101.5298152096657" y="1266.0" />
+      <point x="39.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameRepository" target="com.casinoGame.casinoGame.Game.FruitGame">
+      <point x="64.5" y="-25.5" />
+      <point x="1177.1844171997154" y="1266.0" />
+      <point x="1462.6921019900497" y="1266.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="-22.428571428571445" y="-36.5" />
+      <point x="56.071428571428555" y="1143.0" />
+      <point x="50.35714285714266" y="1143.0" />
+      <point x="50.35714285714266" y="573.0" />
+      <point x="971.0145833333333" y="573.0" />
+      <point x="971.0145833333333" y="278.0" />
+      <point x="1013.84776119403" y="278.0" />
+      <point x="-30.5" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Core.SymbolLine">
+      <point x="-44.85714285714289" y="-36.5" />
+      <point x="33.64285714285711" y="1143.0" />
+      <point x="39.35714285714266" y="1143.0" />
+      <point x="39.35714285714266" y="563.0" />
+      <point x="450.2902318763324" y="563.0" />
+      <point x="450.2902318763324" y="298.0" />
+      <point x="581.25625" y="298.0" />
+      <point x="-54.39999999999998" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameRepository" target="com.casinoGame.casinoGame.Game.BombGame">
+      <point x="-21.5" y="-25.5" />
+      <point x="1091.1844171997154" y="1256.0" />
+      <point x="849.8094171997154" y="1256.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Core.Point">
+      <point x="-68.6875" y="-36.5" />
+      <point x="781.1219171997154" y="1013.0" />
+      <point x="133.2902318763322" y="1013.0" />
+      <point x="133.2902318763322" y="103.0" />
+      <point x="575.65625" y="103.0" />
+      <point x="-13.875" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameRepository" target="com.casinoGame.casinoGame.Core.Game">
+      <point x="21.5" y="-25.5" />
+      <point x="1134.1844171997154" y="1256.0" />
+      <point x="1370.1921019900497" y="1256.0" />
+      <point x="1370.1921019900497" y="1073.0" />
+      <point x="1451.0046019900497" y="1073.0" />
+      <point x="10.8125" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Core.Game">
+      <point x="67.28571428571428" y="-36.5" />
+      <point x="145.78571428571422" y="1043.0" />
+      <point x="1386.1296019900497" y="1043.0" />
+      <point x="-54.0625" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="-108.79999999999995" y="-102.5" />
+      <point x="724.1985652096657" y="563.0" />
+      <point x="528.8094171997154" y="563.0" />
+      <point x="528.8094171997154" y="288.0" />
+      <point x="491.6804060056854" y="288.0" />
+      <point x="12.625" y="14.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.Event" target="com.casinoGame.casinoGame.Core.LineDefinition">
+      <point x="0.0" y="-69.5" />
+      <point x="1496.6762393390188" y="298.0" />
+      <point x="1074.84776119403" y="298.0" />
+      <point x="30.5" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Core.Game">
+      <point x="-29.4375" y="-36.5" />
+      <point x="1433.2546019900497" y="1093.0" />
+      <point x="1494.2546019900497" y="1093.0" />
+      <point x="54.0625" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Core.SpecialSymbol">
+      <point x="54.39999999999998" y="-102.5" />
+      <point x="887.3985652096658" y="563.0" />
+      <point x="923.7902318763324" y="563.0" />
+      <point x="923.7902318763324" y="258.0" />
+      <point x="932.09776119403" y="258.0" />
+      <point x="31.25" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Core.BoardDefinition.Builder">
+      <point x="-9.8125" y="-36.5" />
+      <point x="1452.8796019900497" y="1103.0" />
+      <point x="1563.3171019900497" y="1103.0" />
+      <point x="1563.3171019900497" y="838.0" />
+      <point x="923.6652318763324" y="838.0" />
+      <point x="90.66666666666674" y="102.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameRepository" target="com.casinoGame.casinoGame.Game.SpaceGame">
+      <point x="-64.5" y="-25.5" />
+      <point x="1048.1844171997154" y="1266.0" />
+      <point x="78.5" y="1266.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Core.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Core.SymbolLine">
+      <point x="-54.39999999999998" y="-102.5" />
+      <point x="778.5985652096658" y="553.0" />
+      <point x="630.7902318763324" y="553.0" />
+      <point x="630.7902318763324" y="298.0" />
+      <point x="635.65625" y="298.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Core.SymbolLine">
+      <point x="9.8125" y="-36.5" />
+      <point x="1472.5046019900497" y="1113.0" />
+      <point x="1836.7485652096657" y="1113.0" />
+      <point x="1836.7485652096657" y="248.0" />
+      <point x="690.05625" y="248.0" />
+      <point x="54.39999999999998" y="47.5" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameLogic.BombGameLogic" target="com.casinoGame.casinoGame.Core.Event">
+      <point x="-35.0" y="-14.5" />
+      <point x="1057.3735652096657" y="573.0" />
+      <point x="1417.076239339019" y="573.0" />
+      <point x="-79.59999999999991" y="69.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="643.5714285714284" y="435.2857142857142" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

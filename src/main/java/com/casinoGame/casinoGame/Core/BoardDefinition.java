@@ -1,9 +1,9 @@
 package com.casinoGame.casinoGame.Core;
 
 import com.casinoGame.casinoGame.Validations.Validation;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BoardDefinition {
     public final int columns;
@@ -13,15 +13,17 @@ public class BoardDefinition {
     public final List<Validation> validations;
     public final List<Integer> jokers;
     public final List<SpecialSymbol> specialSymbols;
+    public final List<Integer> bets;
 
-    public BoardDefinition(int rows, int columns, List<LineDefinition> lines, List<Validation> validations, List<SymbolLine> symbolLines, List<Integer> jokers, List<SpecialSymbol> specialSymbols) {
-        this.columns = columns;
-        this.rows = rows;
-        this.lines = lines;
-        this.symbolLines = symbolLines;
-        this.jokers = jokers;
-        this.validations = validations;
-        this.specialSymbols = specialSymbols;
+    private BoardDefinition(Builder builder) {
+        this.columns = builder.columns;
+        this.rows = builder.rows;
+        this.lines = builder.lines;
+        this.symbolLines = builder.symbolLines;
+        this.jokers = builder.jokers;
+        this.validations = builder.validations;
+        this.specialSymbols = builder.specialSymbols;
+        this.bets = builder.bets;
     }
 
     public List<Integer> getSymbols() {
@@ -48,6 +50,60 @@ public class BoardDefinition {
         return true;
     }
 
+    public int getRandomSymbol() {
+        List<Integer> symbols = getSymbols();
+        int index = new Random().nextInt(symbols.size());
+        return symbols.get(index);
+    }
 
+    public static class Builder {
+        int columns;
+        int rows;
+        List<LineDefinition> lines = new ArrayList<>();
+        List<SymbolLine> symbolLines = new ArrayList<>();
+        List<Validation> validations = new ArrayList<>();
+        List<Integer> jokers = new ArrayList<>();
+        List<SpecialSymbol> specialSymbols = new ArrayList<>();
+        List<Integer> bets = new ArrayList<>();
+
+        public Builder(int rows, int columns) {
+            this.columns = columns;
+            this.rows = rows;
+        }
+
+        public Builder withLines(List<LineDefinition> lines) {
+            this.lines = lines;
+            return this;
+        }
+
+        public Builder withValidations(List<Validation> validations) {
+            this.validations = validations;
+            return this;
+        }
+
+        public Builder withSymbols(List<SymbolLine> symbolLines) {
+            this.symbolLines = symbolLines;
+            return this;
+        }
+
+        public Builder withJokers(List<Integer> jokers) {
+            this.jokers = jokers;
+            return this;
+        }
+
+        public Builder withSpecialSymbols(List<SpecialSymbol> specialSymbols) {
+            this.specialSymbols = specialSymbols;
+            return this;
+        }
+
+        public Builder withBets(List<Integer> bets) {
+            this.bets = bets;
+            return this;
+        }
+
+        public BoardDefinition build(){
+            return new BoardDefinition(this);
+        }
+    }
 
 }

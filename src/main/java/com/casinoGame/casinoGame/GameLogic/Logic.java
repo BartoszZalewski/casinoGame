@@ -7,6 +7,7 @@ import java.util.List;
 
 public abstract class Logic {
     final BoardDefinition boardDefinition;
+    List<Event> events;
 
     public Logic(BoardDefinition boardDefinition) {
         this.boardDefinition = boardDefinition;
@@ -14,10 +15,12 @@ public abstract class Logic {
 
     public abstract int[][] getValidBoard();
 
-    public abstract int beauty();
-
-    public abstract  int value(int[][] board);
+    public abstract  int value(int[][] board, int bet);
 
     public abstract List<Event> getEvents(int[][] board);
+
+    public BoardDefinition getBoardDefinition() {
+        return boardDefinition;
+    }
 
 }

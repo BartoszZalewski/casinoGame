@@ -31,4 +31,19 @@ public class Player {
     public String toString() {
         return "{Nick: " + nickName + ", credits: " + credits + "}";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player) o;
+
+        return nickName != null ? nickName.equals(player.nickName) : player.nickName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return nickName != null ? nickName.hashCode() : 0;
+    }
 }

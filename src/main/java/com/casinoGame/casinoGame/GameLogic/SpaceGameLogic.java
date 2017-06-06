@@ -6,9 +6,9 @@ import com.casinoGame.casinoGame.Core.LineDefinition;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FruitGameLogic extends Logic {
+public class SpaceGameLogic extends Logic {
 
-    public FruitGameLogic(BoardDefinition boardDefinition) {
+    public SpaceGameLogic(BoardDefinition boardDefinition) {
         super(boardDefinition);
     }
 
@@ -34,7 +34,7 @@ public class FruitGameLogic extends Logic {
 
         List<LineDefinition> lines = boardDefinition.lines;
         for(LineDefinition lineDefinition : lines) {
-            List<Integer> matchedLineIndexes = lineDefinition.matchFromLeft(board, boardDefinition.jokers);
+            List<Integer> matchedLineIndexes = lineDefinition.match(board, boardDefinition.jokers);
             int matchedSize = matchedLineIndexes.size();
             if(matchedSize > 0) {
                 int symbolId = lineDefinition.getFirstNoJokerSymbolId(board, boardDefinition.jokers);

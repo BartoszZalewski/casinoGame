@@ -3,7 +3,11 @@ package com.casinoGame.casinoGame.Validations;
 import java.util.HashMap;
 
 public class VerticalLineValidation extends Validation{
-    HashMap<Integer, Integer> symbolCounts;
+    public HashMap<Integer, Integer> getSymbolCounts() {
+        return symbolCounts;
+    }
+
+    private final HashMap<Integer, Integer> symbolCounts;
 
     public VerticalLineValidation(HashMap<Integer, Integer> symbolCounts) {
         this.symbolCounts = symbolCounts;

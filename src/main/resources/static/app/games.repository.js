@@ -19,7 +19,6 @@
 
         function init(){
             getAll();
-            getAll;
         }
 
         function getAll(){

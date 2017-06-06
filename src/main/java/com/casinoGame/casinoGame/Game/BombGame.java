@@ -1,8 +1,8 @@
 package com.casinoGame.casinoGame.Game;
 
 import com.casinoGame.casinoGame.Core.*;
+import com.casinoGame.casinoGame.GameLogic.BombGameLogic;
 import com.casinoGame.casinoGame.GameLogic.Logic;
-import com.casinoGame.casinoGame.GameLogic.SpaceGameLogic;
 import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
 import com.casinoGame.casinoGame.Validations.Validation;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.*;
 
 @Controller
-public class SpaceGame extends Game{
+public class BombGame extends Game{
 
-    public final String NAME = "Space Game";
-    public final String PAGE = "spaceGame";
+    public final String NAME = "Bomb Game";
+    public final String PAGE = "bombGame";
 
-    public SpaceGame(){
+    public BombGame(){
     }
 
-    public SpaceGame(Logic logic) {
+    public BombGame(Logic logic) {
         super(logic);
     }
 
@@ -51,50 +51,86 @@ public class SpaceGame extends Game{
                         new Point(4,2))
                 ),
                 new LineDefinition(3, Arrays.asList(
+                        new Point(0,3),
+                        new Point(1,3),
+                        new Point(2,3),
+                        new Point(3,3),
+                        new Point(4,3))
+                ),
+                new LineDefinition(4, Arrays.asList(
+                        new Point(0,4),
+                        new Point(1,4),
+                        new Point(2,4),
+                        new Point(3,4),
+                        new Point(4,4))
+                ),
+                new LineDefinition(5, Arrays.asList(
                         new Point(0,0),
                         new Point(1,1),
+                        new Point(2,2),
+                        new Point(3,3),
+                        new Point(4,4))
+                ),
+                new LineDefinition(6, Arrays.asList(
+                        new Point(0,4),
+                        new Point(1,3),
                         new Point(2,2),
                         new Point(3,1),
                         new Point(4,0))
                 ),
-                new LineDefinition(4, Arrays.asList(
-                        new Point(0,2),
-                        new Point(1,1),
-                        new Point(2,0),
-                        new Point(3,1),
-                        new Point(4,2))
+                new LineDefinition(7, Arrays.asList(
+                    new Point(0,0),
+                    new Point(1,4),
+                    new Point(2,0),
+                    new Point(3,4),
+                    new Point(4,0))
+                ),
+                new LineDefinition(8, Arrays.asList(
+                        new Point(0,4),
+                        new Point(1,0),
+                        new Point(2,4),
+                        new Point(3,0),
+                        new Point(4,4))
                 )
         );
 
         List<SymbolLine> symbolLines = Arrays.asList(
-                new SymbolLine(0, 3, 2),
-                new SymbolLine(0, 4, 3),
-                new SymbolLine(0, 5, 4),
-                new SymbolLine(1, 3, 4),
-                new SymbolLine(1, 4, 5),
-                new SymbolLine(1, 5, 6),
-                new SymbolLine(2, 3, 6),
-                new SymbolLine(2, 4, 7),
-                new SymbolLine(2, 5, 8),
-                new SymbolLine(3, 3, 20),
-                new SymbolLine(3, 4, 50),
-                new SymbolLine(3, 5, 100),
-                new SymbolLine(4, 3, 50),
-                new SymbolLine(4, 4, 100),
-                new SymbolLine(4, 5, 200),
+                new SymbolLine(5, 2, 1),
+                new SymbolLine(5, 3, 2),
+                new SymbolLine(5, 4, 3),
+                new SymbolLine(5, 5, 4),
+                new SymbolLine(6, 2, 3),
+                new SymbolLine(6, 3, 4),
+                new SymbolLine(6, 4, 5),
+                new SymbolLine(6, 5, 6),
+                new SymbolLine(7, 2, 5),
+                new SymbolLine(7, 3, 6),
+                new SymbolLine(7, 4, 7),
+                new SymbolLine(7, 5, 8),
+                new SymbolLine(8, 2, 10),
+                new SymbolLine(8, 3, 20),
+                new SymbolLine(8, 4, 50),
+                new SymbolLine(8, 5, 100),
+                new SymbolLine(9, 2, 20),
+                new SymbolLine(9, 3, 50),
+                new SymbolLine(9, 4, 100),
+                new SymbolLine(9, 5, 200),
+                new SymbolLine(10, 2, 20),
                 new SymbolLine(10, 3, 50),
                 new SymbolLine(10, 4, 100),
                 new SymbolLine(10, 5, 200),
+                new SymbolLine(11, 2, 50),
                 new SymbolLine(11, 3, 100),
                 new SymbolLine(11, 4, 200),
                 new SymbolLine(11, 5, 300),
+                new SymbolLine(12, 2, 50),
                 new SymbolLine(12, 3, 100),
                 new SymbolLine(12, 4, 200),
                 new SymbolLine(12, 5, 300),
+                new SymbolLine(13, 2, 200),
                 new SymbolLine(13, 3, 600),
                 new SymbolLine(13, 4, 800),
                 new SymbolLine(13, 5, 1000)
-
         );
 
         List<Integer> jokers = Collections.singletonList(
@@ -116,7 +152,7 @@ public class SpaceGame extends Game{
 
         List<Integer> bets = Arrays.asList(1, 2, 5, 10, 20, 50, 100, 200, 500);
 
-        BoardDefinition boardDefinition = new BoardDefinition.Builder(3, 5)
+        BoardDefinition boardDefinition = new BoardDefinition.Builder(5, 5)
                 .withLines(lines)
                 .withJokers(jokers)
                 .withSymbols(symbolLines)
@@ -124,7 +160,8 @@ public class SpaceGame extends Game{
                 .withBets(bets)
                 .build();
 
-        return new Game(NAME, PAGE, new SpaceGameLogic(boardDefinition));
+
+        return new Game(NAME, PAGE, new BombGameLogic(boardDefinition));
     }
 
     @RequestMapping(value = "/" + PAGE +"/{name}")

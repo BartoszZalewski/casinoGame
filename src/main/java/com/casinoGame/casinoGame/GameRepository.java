@@ -1,6 +1,9 @@
-package com.casinoGame.casinoGame.Game;
+package com.casinoGame.casinoGame;
 
-import com.casinoGame.casinoGame.Core.Game;
+import com.casinoGame.casinoGame.Game.Game;
+import com.casinoGame.casinoGame.Game.BombGame;
+import com.casinoGame.casinoGame.Game.FruitGame;
+import com.casinoGame.casinoGame.Game.SpaceGame;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +19,7 @@ public class GameRepository {
         games = new ArrayList<>();
         games.add(new FruitGame().create());
         games.add(new SpaceGame().create());
+        games.add(new BombGame().create());
     }
 
     @RequestMapping(value = "/allGamesRepo")

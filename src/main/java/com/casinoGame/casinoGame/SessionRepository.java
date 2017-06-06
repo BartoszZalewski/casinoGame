@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +53,9 @@ public class SessionRepository {
             Player player = session.getPlayer();
             players.add(player);
         }
+
+        players.sort((o1, o2) -> o2.getCredits() - o1.getCredits());
+
         return new Gson().toJson(players);
     }
 
