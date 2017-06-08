@@ -4,7 +4,7 @@ import com.casinoGame.casinoGame.Line.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MachAnyLongestLine extends MatchLine {
+public class MatchAnyLongestLine extends MatchLine {
     @Override
     public List<Integer> match(int[][] board, List<Point> points, List<Integer> jokers) {
         List<Integer> indexes = new ArrayList<>();

@@ -10,10 +10,10 @@ public class BoardDefinition {
     public final int columns;
     public final int rows;
     public final List<Line> lines;
-    public final List<SymbolLine> symbolLines;
-    public final List<Validation> validations;
-    public final List<Integer> jokers;
-    public final List<SpecialSymbol> specialSymbols;
+    private final List<SymbolLine> symbolLines;
+    private final List<Validation> validations;
+    private final List<Integer> jokers;
+    private final List<SpecialSymbol> specialSymbols;
     public final List<Integer> bets;
 
     private BoardDefinition(Builder builder) {
@@ -52,19 +52,22 @@ public class BoardDefinition {
         return 0;
     }
 
-    public boolean valid(int[][] board) {
-        for(Validation validation : validations) {
-            if(!validation.valid(board)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public int getRandomSymbol() {
         List<Integer> symbols = getSymbols();
         int index = new Random().nextInt(symbols.size());
         return symbols.get(index);
+    }
+
+    public List<Validation> getValidations() {
+        return validations;
+    }
+
+    public List<Integer> getJokers() {
+        return jokers;
+    }
+
+    public List<SpecialSymbol> getSpecialSymbols() {
+        return specialSymbols;
     }
 
     public static class Builder {

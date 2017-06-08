@@ -19,7 +19,9 @@ public class FreeSpinsSymbol extends SpecialSymbol {
         Line specialSymbolsLine = createLine(board, id);
         if(specialSymbolsLine.size() >= numberOf) {
             Event event = new Event("FreeSpinSymbolEvent", 0, specialSymbolsLine.inDefaultOrder(), specialSymbolsLine, name + ":" + freeSpins);
-            logic.addEvent(event);
+            if(logic.getEventsValue() > 0) {
+                logic.addEvent(event);
+            }
         }
 
     }

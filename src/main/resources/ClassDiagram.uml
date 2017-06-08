@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="194.06416213053728" y="1619.3873852019794">com.casinoGame.casinoGame.Game.Logic.Logic</node>
+    <node x="732.5850324022265" y="2409.5266781830364">com.casinoGame.casinoGame.Validations.FreeSpecialSymbolsValidation</node>
+    <node x="1262.0640546997963" y="2053.4298822693713">com.casinoGame.casinoGame.Base.SymbolLine</node>
+    <node x="1761.5507108006334" y="2235.8617055050736">com.casinoGame.casinoGame.SpecialSymbol.TreasureSymbol</node>
+    <node x="375.1629555227032" y="2096.6140948611414">com.casinoGame.casinoGame.Game.Logic.FruitGameLogic</node>
+    <node x="1631.9781917631346" y="2054.49404692783">com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol</node>
+    <node x="-185.2295392563754" y="1929.9764072172024">com.casinoGame.casinoGame.Game.BombGame</node>
+    <node x="899.4231678696177" y="2290.3260408429774">com.casinoGame.casinoGame.Validations.Validation</node>
+    <node x="1162.3229967592317" y="2159.3220757641975">com.casinoGame.casinoGame.Base.BoardDefinition.Builder</node>
+    <node x="2051.195023113712" y="1824.2055288549038">com.casinoGame.casinoGame.Line.Match.MatchLine</node>
+    <node x="959.1473310766016" y="1857.2399337829477">com.casinoGame.casinoGame.Base.BoardDefinition</node>
+    <node x="1087.4420214364718" y="2401.993938757467">com.casinoGame.casinoGame.Validations.HorizontalLineValidation</node>
+    <node x="-389.0279489366891" y="1937.0472207327523">com.casinoGame.casinoGame.Game.FruitGame</node>
+    <node x="937.3572397347823" y="2522.3598602826078">com.casinoGame.casinoGame.Validations.VerticalLineValidation</node>
+    <node x="-680.8575898202779" y="1599.3981693515325">com.casinoGame.casinoGame.Session</node>
+    <node x="1070.2004108835272" y="1613.5849856527739">com.casinoGame.casinoGame.Base.Spin</node>
+    <node x="-514.2727635760824" y="2166.2255935754188">com.casinoGame.casinoGame.CasinoGameApplication</node>
+    <node x="-0.19586056759260373" y="1941.8459720877563">com.casinoGame.casinoGame.Game.SpaceGame</node>
+    <node x="2278.8971567203075" y="1969.7476559126812">com.casinoGame.casinoGame.Line.Match.MatchLineFromRight</node>
+    <node x="0.2345423947697327" y="2420.4128049080005">com.casinoGame.casinoGame.Jackpot.JackpotService</node>
+    <node x="-488.59018435148255" y="1839.176282243898">com.casinoGame.casinoGame.GameRepository</node>
+    <node x="1805.082964995298" y="1973.8467274173204">com.casinoGame.casinoGame.Line.Match.MatchLineFromLeft</node>
+    <node x="1454.4986861247999" y="1718.152645752128">com.casinoGame.casinoGame.Base.Event</node>
+    <node x="-681.5077202563724" y="1386.6927498376601">com.casinoGame.casinoGame.SessionRepository</node>
+    <node x="-175.62338042896948" y="2122.312511638733">com.casinoGame.casinoGame.ViewController</node>
+    <node x="2036.0503540226273" y="2055.224636265163">com.casinoGame.casinoGame.Line.Match.MatchAnyLongestLine</node>
+    <node x="519.8869208651374" y="2172.0603148389037">com.casinoGame.casinoGame.Game.Logic.SpaceGameLogic</node>
+    <node x="-219.07676178240115" y="1706.676991923476">com.casinoGame.casinoGame.Game.Game</node>
+    <node x="278.5705558284827" y="2399.6318052438623">com.casinoGame.casinoGame.Jackpot.Jackpot</node>
+    <node x="-390.0475744466589" y="2377.9377589618257">com.casinoGame.casinoGame.ValuesService</node>
+    <node x="116.63348875754662" y="2094.3374188820762">com.casinoGame.casinoGame.Game.Logic.BombGameLogic</node>
+    <node x="-242.07492783544217" y="1476.2304291398227">com.casinoGame.casinoGame.Base.Player</node>
+    <node x="1984.0110247152775" y="1758.798230829815">com.casinoGame.casinoGame.Line.Point</node>
+    <node x="1541.2782737728717" y="2246.4996709203456">com.casinoGame.casinoGame.SpecialSymbol.FreeSpinsSymbol</node>
+    <node x="1682.302833293125" y="1753.4715808856752">com.casinoGame.casinoGame.Line.Line</node>
+    <node x="2015.7532653131498" y="2217.214251059066">com.casinoGame.casinoGame.Base.Range</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.casinoGame.casinoGame.Game.FruitGame" target="com.casinoGame.casinoGame.Game.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.SpaceGameLogic" target="com.casinoGame.casinoGame.Game.Logic.Logic">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Game" target="com.casinoGame.casinoGame.Game.Logic.Logic">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.BombGameLogic" target="com.casinoGame.casinoGame.Game.Logic.Logic">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Jackpot.JackpotService" target="com.casinoGame.casinoGame.Jackpot.Jackpot">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.ValuesService" target="com.casinoGame.casinoGame.Jackpot.JackpotService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.SpecialSymbol.FreeSpinsSymbol" target="com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.BombGame" target="com.casinoGame.casinoGame.Game.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.SessionRepository" target="com.casinoGame.casinoGame.Session">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Line.Line" target="com.casinoGame.casinoGame.Line.Match.MatchLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition.Builder" target="com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Session" target="com.casinoGame.casinoGame.Game.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition" target="com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Session" target="com.casinoGame.casinoGame.Base.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.FruitGameLogic" target="com.casinoGame.casinoGame.Game.Logic.Logic">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Line.Match.MatchAnyLongestLine" target="com.casinoGame.casinoGame.Line.Match.MatchLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.Logic" target="com.casinoGame.casinoGame.Base.Spin">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Validations.VerticalLineValidation" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.Logic" target="com.casinoGame.casinoGame.Base.BoardDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Base.BoardDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition" target="com.casinoGame.casinoGame.Line.Line">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Base.SymbolLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.Logic.Logic" target="com.casinoGame.casinoGame.Base.Event">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Line.Match.MatchLineFromLeft" target="com.casinoGame.casinoGame.Line.Match.MatchLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Line.Match.MatchLineFromRight" target="com.casinoGame.casinoGame.Line.Match.MatchLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.SpecialSymbol.TreasureSymbol" target="com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition" target="com.casinoGame.casinoGame.Base.SymbolLine">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.Spin" target="com.casinoGame.casinoGame.Base.Event">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Validations.FreeSpecialSymbolsValidation" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.Event" target="com.casinoGame.casinoGame.Line.Line">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Validations.HorizontalLineValidation" target="com.casinoGame.casinoGame.Validations.Validation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.GameRepository" target="com.casinoGame.casinoGame.Game.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Line.Line" target="com.casinoGame.casinoGame.Line.Point">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Base.BoardDefinition.Builder" target="com.casinoGame.casinoGame.Line.Line">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.SpecialSymbol.TreasureSymbol" target="com.casinoGame.casinoGame.Base.Range">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.casinoGame.casinoGame.Game.SpaceGame" target="com.casinoGame.casinoGame.Game.Game">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7746782400478899" x="1527.165352862988" y="2129.6167060192315" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

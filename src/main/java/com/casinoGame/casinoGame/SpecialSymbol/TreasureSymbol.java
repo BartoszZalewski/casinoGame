@@ -4,10 +4,6 @@ import com.casinoGame.casinoGame.Base.Event;
 import com.casinoGame.casinoGame.Base.Range;
 import com.casinoGame.casinoGame.Game.Logic.Logic;
 import com.casinoGame.casinoGame.Line.Line;
-import com.casinoGame.casinoGame.Line.Point;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TreasureSymbol extends SpecialSymbol {
     private final int numberOf;

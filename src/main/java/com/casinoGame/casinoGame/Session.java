@@ -8,10 +8,6 @@ public class Session {
     private Player player;
     private Game currentGame;
 
-    public Session(){
-
-    }
-
     public Session(Player player){
         this.player = player;
     }

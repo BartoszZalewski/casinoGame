@@ -4,7 +4,7 @@ import com.casinoGame.casinoGame.Base.*;
 import com.casinoGame.casinoGame.Game.Logic.Logic;
 import com.casinoGame.casinoGame.Game.Logic.SpaceGameLogic;
 import com.casinoGame.casinoGame.Line.Line;
-import com.casinoGame.casinoGame.Line.Match.MachAnyLongestLine;
+import com.casinoGame.casinoGame.Line.Match.MatchAnyLongestLine;
 import com.casinoGame.casinoGame.Line.Point;
 import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
@@ -39,7 +39,7 @@ public class SpaceGame extends Game{
                         new Point(2,0),
                         new Point(3,0),
                         new Point(4,0)),
-                        new MachAnyLongestLine()
+                        new MatchAnyLongestLine()
                 ),
                 new Line(1, Arrays.asList(
                         new Point(0,1),
@@ -47,7 +47,7 @@ public class SpaceGame extends Game{
                         new Point(2,1),
                         new Point(3,1),
                         new Point(4,1)),
-                        new MachAnyLongestLine()
+                        new MatchAnyLongestLine()
                 ),
                 new Line(2, Arrays.asList(
                         new Point(0,2),
@@ -55,7 +55,7 @@ public class SpaceGame extends Game{
                         new Point(2,2),
                         new Point(3,2),
                         new Point(4,2)),
-                        new MachAnyLongestLine()
+                        new MatchAnyLongestLine()
                 ),
                 new Line(3, Arrays.asList(
                         new Point(0,0),
@@ -63,7 +63,7 @@ public class SpaceGame extends Game{
                         new Point(2,2),
                         new Point(3,1),
                         new Point(4,0)),
-                        new MachAnyLongestLine()
+                        new MatchAnyLongestLine()
                 ),
                 new Line(4, Arrays.asList(
                         new Point(0,2),
@@ -71,7 +71,7 @@ public class SpaceGame extends Game{
                         new Point(2,0),
                         new Point(3,1),
                         new Point(4,2)),
-                        new MachAnyLongestLine()
+                        new MatchAnyLongestLine()
                 )
         );
 

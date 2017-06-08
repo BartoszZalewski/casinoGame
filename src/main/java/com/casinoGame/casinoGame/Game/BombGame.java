@@ -10,7 +10,7 @@ import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
 import com.casinoGame.casinoGame.SpecialSymbol.FreeSpinsSymbol;
 import com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol;
-import com.casinoGame.casinoGame.Validations.HorizontalLineValidation;
+import com.casinoGame.casinoGame.Validations.FreeSpecialSymbolsValidation;
 import com.casinoGame.casinoGame.Validations.Validation;
 import com.casinoGame.casinoGame.Validations.VerticalLineValidation;
 import com.google.gson.Gson;
@@ -110,35 +110,27 @@ public class BombGame extends Game{
         );
 
         List<SymbolLine> symbolLines = Arrays.asList(
-                new SymbolLine(5, 2, 1),
                 new SymbolLine(5, 3, 2),
                 new SymbolLine(5, 4, 3),
                 new SymbolLine(5, 5, 4),
-                new SymbolLine(6, 2, 3),
                 new SymbolLine(6, 3, 4),
                 new SymbolLine(6, 4, 5),
                 new SymbolLine(6, 5, 6),
-                new SymbolLine(7, 2, 5),
                 new SymbolLine(7, 3, 6),
                 new SymbolLine(7, 4, 7),
                 new SymbolLine(7, 5, 8),
-                new SymbolLine(8, 2, 10),
                 new SymbolLine(8, 3, 20),
                 new SymbolLine(8, 4, 50),
                 new SymbolLine(8, 5, 100),
-                new SymbolLine(9, 2, 20),
                 new SymbolLine(9, 3, 50),
                 new SymbolLine(9, 4, 100),
                 new SymbolLine(9, 5, 200),
-                new SymbolLine(10, 2, 20),
                 new SymbolLine(10, 3, 50),
                 new SymbolLine(10, 4, 100),
                 new SymbolLine(10, 5, 200),
-                new SymbolLine(11, 2, 50),
                 new SymbolLine(11, 3, 100),
                 new SymbolLine(11, 4, 200),
                 new SymbolLine(11, 5, 300),
-                new SymbolLine(12, 2, 50),
                 new SymbolLine(12, 3, 100),
                 new SymbolLine(12, 4, 200),
                 new SymbolLine(12, 5, 300)
@@ -160,14 +152,7 @@ public class BombGame extends Game{
                             }
                         }
                 ),
-                new HorizontalLineValidation(
-                        new HashMap<Integer, Integer>(){
-                            {
-                                put(14,0);
-                                put(14,2);
-                            }
-                        }
-                )
+                new FreeSpecialSymbolsValidation()
 
         );
 

@@ -3,10 +3,6 @@ package com.casinoGame.casinoGame.Validations;
 import java.util.HashMap;
 
 public class HorizontalLineValidation extends Validation{
-    public HashMap<Integer, Integer> getSymbolCounts() {
-        return symbolCounts;
-    }
-
     private final HashMap<Integer, Integer> symbolCounts;
 
     public HorizontalLineValidation(HashMap<Integer, Integer> symbolCounts) {
@@ -14,7 +10,7 @@ public class HorizontalLineValidation extends Validation{
     }
 
     @Override
-    public boolean valid(int[][] board) {
+    public boolean valid(int[][] board, Object... objects) {
 
         for(Integer symbolId : symbolCounts.keySet()) {
             int maxExpectedValue = symbolCounts.get(symbolId);
@@ -39,7 +35,9 @@ public class HorizontalLineValidation extends Validation{
         return counter;
     }
 
-
+    public HashMap<Integer, Integer> getSymbolCounts() {
+        return symbolCounts;
+    }
 
 }
 

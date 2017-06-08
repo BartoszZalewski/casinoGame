@@ -1,6 +1,5 @@
 package com.casinoGame.casinoGame.Base;
 
-
 import java.util.Random;
 
 public class Range {
@@ -14,10 +13,6 @@ public class Range {
 
     public boolean contains(int value) {
         return from <= value && value <= to;
-    }
-
-    public Range multiply(int value) {
-        return new Range(value * from, value * to);
     }
 
     @Override

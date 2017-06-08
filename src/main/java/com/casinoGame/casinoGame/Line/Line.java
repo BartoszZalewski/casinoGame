@@ -1,8 +1,6 @@
 package com.casinoGame.casinoGame.Line;
 
 import com.casinoGame.casinoGame.Line.Match.MatchLine;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,15 +29,13 @@ public class Line {
         return matchLine.match(board, points, jokers);
     }
 
-    public int getFirstNoJokerSymbolId(int [][]board, List<Integer> jokers) {
-        int index = 0;
-        while (jokers.contains(getSymbolId(board, index))){
-            index++;
-            if(index >= points.size()) {
-                return getSymbolId(board, 0);
+    public int getFirstNoJokerSymbolId(int [][]board, List<Integer> indexes, List<Integer> jokers) {
+        for(Integer index : indexes) {
+            if(!jokers.contains(getSymbolId(board, index))) {
+                return getSymbolId(board, index);
             }
         }
-        return getSymbolId(board, index);
+        return getSymbolId(board, indexes.get(0));
     }
 
     private int getSymbolId(int [][]board, int index) {

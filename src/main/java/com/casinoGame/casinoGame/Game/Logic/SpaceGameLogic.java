@@ -13,11 +13,11 @@ public class SpaceGameLogic extends Logic {
     public int value(int[][] board) {
         events = getLinesValueEvents(board);
 
-        for(SpecialSymbol specialSymbol : boardDefinition.specialSymbols) {
+        for(SpecialSymbol specialSymbol : boardDefinition.getSpecialSymbols()) {
             specialSymbol.call(board, this);
         }
 
-        return getEventsValue(events);
+        return getEventsValue();
     }
 
     @Override

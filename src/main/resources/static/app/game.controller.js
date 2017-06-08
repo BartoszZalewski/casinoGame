@@ -12,7 +12,7 @@
         var vm = this;
         var iFrequency = 5000;
         var myInterval = 0;
-        var divSize = 100;
+        var divSize = 70;
         var defaultBoard = '{}';
         vm.board = "{}";
         vm.nextSpin = nextSpin;
@@ -230,7 +230,7 @@
         }
 
         function image(imgId, id) {
-           var img = '<img src="../images/' + imgId +'.png"></img>';
+           var img = '<img style="width: '+divSize+'px; height: '+divSize+'px" src="../images/' + imgId +'.png"></img>';
            document.getElementById(id).innerHTML=img;
          }
 

@@ -5,6 +5,7 @@ import com.casinoGame.casinoGame.Base.Event;
 import com.casinoGame.casinoGame.Base.Range;
 import com.casinoGame.casinoGame.Base.Spin;
 import com.casinoGame.casinoGame.Line.Line;
+import com.casinoGame.casinoGame.Validations.Validation;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public abstract class Logic {
         int lose = loseValue(bet);
         multiplyEvents(bet);
 
-        Spin spin = new Spin(board, getEvents(), getEventsValue(events), lose, bet);
+        Spin spin = new Spin(board, getEvents(), getEventsValue(), lose, bet);
 
         setLastSpin(spin);
         log(spin, range, counter, limit);
@@ -58,10 +59,19 @@ public abstract class Logic {
                 do {
                     int nextSymbol = boardDefinition.getRandomSymbol();
                     board[column][row] = nextSymbol;
-                } while(!boardDefinition.valid(board));
+                } while(!valid(board));
             }
         }
         return board;
+    }
+
+    protected boolean valid(int[][] board) {
+        for(Validation validation : boardDefinition.getValidations()) {
+            if(!validation.valid(board)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     protected int[][] getValidLoserBoard(){
@@ -82,10 +92,10 @@ public abstract class Logic {
         events = new ArrayList<>();
         List<Line> lines = boardDefinition.lines;
         for(Line line : lines) {
-            List<Integer> matchedLineIndexes = line.match(board, boardDefinition.jokers);
+            List<Integer> matchedLineIndexes = line.match(board, boardDefinition.getJokers());
             int matchedSize = matchedLineIndexes.size();
             if(matchedSize > 0) {
-                int symbolId = line.getFirstNoJokerSymbolId(board, boardDefinition.jokers);
+                int symbolId = line.getFirstNoJokerSymbolId(board, matchedLineIndexes, boardDefinition.getJokers());
                 int lineValue = boardDefinition.getSymbolValue(symbolId, matchedSize);
                 if(lineValue > 0) {
                     events.add(new Event("MatchedLine", lineValue, matchedLineIndexes, line, ""));
@@ -113,15 +123,12 @@ public abstract class Logic {
         return boardDefinition;
     }
 
-    protected int getEventsValue(List<Event> events) {
+    public int getEventsValue() {
         int sum = 0;
-        try {
+        if(events != null) {
             for (Event event : events) {
                 sum += event.getPoints();
             }
-        }catch(Exception e){
-            System.out.println("Wyjebało sie :(");
-            System.out.println(events);
         }
         return sum;
     }

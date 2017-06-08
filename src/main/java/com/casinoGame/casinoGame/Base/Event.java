@@ -1,7 +1,6 @@
 package com.casinoGame.casinoGame.Base;
 
 import com.casinoGame.casinoGame.Line.Line;
-
 import java.util.List;
 
 public class Event {

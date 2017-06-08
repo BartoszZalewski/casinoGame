@@ -6,10 +6,6 @@ public class Player {
     public final String nickName;
     private int credits;
 
-    public Player(String nickName) {
-        this.nickName = nickName;
-    }
-
     public Player(String nickName, int credits) {
         this.nickName = nickName;
         this.credits = credits;

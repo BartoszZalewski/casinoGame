@@ -103,8 +103,6 @@ public class FruitGame extends Game{
                 .build();
 
 
-        System.out.println(new Gson().toJson(boardDefinition));
-
         return new FruitGame(new FruitGameLogic(boardDefinition));
     }
 

@@ -11,10 +11,7 @@ public class FruitGameLogic extends Logic {
     @Override
     public int value(int[][] board) {
         events = getLinesValueEvents(board);
-
-
-
-        return getEventsValue(events);
+        return getEventsValue();
     }
 
 }
