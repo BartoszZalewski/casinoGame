@@ -1,10 +1,15 @@
 package com.casinoGame.casinoGame.Game;
 
-import com.casinoGame.casinoGame.Core.*;
-import com.casinoGame.casinoGame.GameLogic.Logic;
-import com.casinoGame.casinoGame.GameLogic.SpaceGameLogic;
+import com.casinoGame.casinoGame.Base.*;
+import com.casinoGame.casinoGame.Game.Logic.Logic;
+import com.casinoGame.casinoGame.Game.Logic.SpaceGameLogic;
+import com.casinoGame.casinoGame.Line.Line;
+import com.casinoGame.casinoGame.Line.Match.MachAnyLongestLine;
+import com.casinoGame.casinoGame.Line.Point;
 import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
+import com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol;
+import com.casinoGame.casinoGame.SpecialSymbol.TreasureSymbol;
 import com.casinoGame.casinoGame.Validations.Validation;
 import com.casinoGame.casinoGame.Validations.VerticalLineValidation;
 import com.google.gson.Gson;
@@ -17,52 +22,56 @@ import java.util.*;
 @Controller
 public class SpaceGame extends Game{
 
-    public final String NAME = "Space Game";
-    public final String PAGE = "spaceGame";
+    public final String NAME = "SpaceGame";
+    public final String PAGE = "defaultGame";
 
-    public SpaceGame(){
-    }
+    public SpaceGame(){}
 
     public SpaceGame(Logic logic) {
         super(logic);
     }
 
     public Game create() {
-        List<LineDefinition> lines = Arrays.asList(
-                new LineDefinition(0, Arrays.asList(
+        List<Line> lines = Arrays.asList(
+                new Line(0, Arrays.asList(
                         new Point(0,0),
                         new Point(1,0),
                         new Point(2,0),
                         new Point(3,0),
-                        new Point(4,0))
+                        new Point(4,0)),
+                        new MachAnyLongestLine()
                 ),
-                new LineDefinition(1, Arrays.asList(
+                new Line(1, Arrays.asList(
                         new Point(0,1),
                         new Point(1,1),
                         new Point(2,1),
                         new Point(3,1),
-                        new Point(4,1))
+                        new Point(4,1)),
+                        new MachAnyLongestLine()
                 ),
-                new LineDefinition(2, Arrays.asList(
+                new Line(2, Arrays.asList(
                         new Point(0,2),
                         new Point(1,2),
                         new Point(2,2),
                         new Point(3,2),
-                        new Point(4,2))
+                        new Point(4,2)),
+                        new MachAnyLongestLine()
                 ),
-                new LineDefinition(3, Arrays.asList(
+                new Line(3, Arrays.asList(
                         new Point(0,0),
                         new Point(1,1),
                         new Point(2,2),
                         new Point(3,1),
-                        new Point(4,0))
+                        new Point(4,0)),
+                        new MachAnyLongestLine()
                 ),
-                new LineDefinition(4, Arrays.asList(
+                new Line(4, Arrays.asList(
                         new Point(0,2),
                         new Point(1,1),
                         new Point(2,0),
                         new Point(3,1),
-                        new Point(4,2))
+                        new Point(4,2)),
+                        new MachAnyLongestLine()
                 )
         );
 
@@ -105,10 +114,12 @@ public class SpaceGame extends Game{
                 new VerticalLineValidation(
                         new HashMap<Integer, Integer>(){
                             {
+                                put(6,1);
                                 put(10,2);
                                 put(11,2);
                                 put(12,1);
                                 put(13,1);
+                                put(14,1);
                             }
                         }
                 )
@@ -116,18 +127,25 @@ public class SpaceGame extends Game{
 
         List<Integer> bets = Arrays.asList(1, 2, 5, 10, 20, 50, 100, 200, 500);
 
+        List<SpecialSymbol> specialSymbols = Arrays.asList(
+                new TreasureSymbol(14, "TreasureSymbol1",3, new Range(3, 300)),
+                new TreasureSymbol(6, "TreasureSymbol2",2, new Range(2, 100))
+
+                );
+
         BoardDefinition boardDefinition = new BoardDefinition.Builder(3, 5)
                 .withLines(lines)
                 .withJokers(jokers)
                 .withSymbols(symbolLines)
+                .withSpecialSymbols(specialSymbols)
                 .withValidations(validations)
                 .withBets(bets)
                 .build();
 
-        return new Game(NAME, PAGE, new SpaceGameLogic(boardDefinition));
+        return new SpaceGame(new SpaceGameLogic(boardDefinition));
     }
 
-    @RequestMapping(value = "/" + PAGE +"/{name}")
+    @RequestMapping(value = "/" + NAME +"/{name}")
     public String play(Model model, @PathVariable String name) {
         Session session = SessionRepository.getSession(name);
         session.setCurrentGame(create());
@@ -136,7 +154,7 @@ public class SpaceGame extends Game{
         model.addAttribute("credits", player.getCredits());
         model.addAttribute("bets", session.getGame().getBets());
         model.addAttribute("board", new Gson().toJson(session.getGame().getDefaultBoard()));
-        return "fruitGame";
+        return PAGE;
     }
 
 }

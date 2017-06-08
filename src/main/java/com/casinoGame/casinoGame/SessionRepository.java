@@ -1,6 +1,6 @@
 package com.casinoGame.casinoGame;
 
-import com.casinoGame.casinoGame.Core.Player;
+import com.casinoGame.casinoGame.Base.Player;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

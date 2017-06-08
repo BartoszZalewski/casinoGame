@@ -1,16 +1,15 @@
 package com.casinoGame.casinoGame;
 
 import com.casinoGame.casinoGame.Game.Game;
-import com.casinoGame.casinoGame.Core.Player;
-import com.casinoGame.casinoGame.Core.Range;
-import com.casinoGame.casinoGame.Core.Spin;
+import com.casinoGame.casinoGame.Base.Player;
+import com.casinoGame.casinoGame.Base.Range;
+import com.casinoGame.casinoGame.Base.Spin;
 import com.casinoGame.casinoGame.Jackpot.JackpotService;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +22,7 @@ public class ValuesService {
     private List<Integer> values;
     private int next;
     private JackpotService jackpotService;
+    private int reserve;
 
     public ValuesService(){
         System.out.println("Service init");
@@ -33,19 +33,22 @@ public class ValuesService {
     public void initMachine() {
         next = 0;
         values = new ArrayList<>();
+
         double winSize = 0.2;
         double size = 10000;
-        double solency = 0.9;
-        double sumValue = size * solency;
+        double solvency = 0.9;
+        double minValue = 2;
+
+        double sumValue = size * solvency;
         for(int i = 0; i < size * winSize; i++) {
-            int nextValue = new Random().nextInt((int) sumValue);
+            int nextValue = (int) (new Random().nextInt((int)( sumValue - minValue)) + minValue);
             if(nextValue > 0) {
                 values.add(nextValue);
             } else {
                 i--;
             }
             sumValue -= nextValue;
-            if(sumValue <= 1) {
+            if(sumValue <= minValue) {
                 int index = getMaxIndex(values, i);
                 sumValue += values.get(index);
                 values.remove(values.get(index));
@@ -71,6 +74,8 @@ public class ValuesService {
         int zero = matchValues(values, 0);
 
         System.out.println(values);
+        System.out.println(sum);
+        System.out.println(zero);
 
     }
 
@@ -122,13 +127,12 @@ public class ValuesService {
             return new Gson().toJson(new Spin(currentBoard,null,0,0, 0));
         }
 
-        int value = values.get(next);
+        int value = values.get(next) + reserve;
         next = (next + 1) % values.size();
 
+        Spin spin = game.getNextSpin(new Range((int) (value * 0.5), value), bet);
 
-
-        Spin spin = game.getNextSpin(new Range(value * 0.5, value), bet);
-
+        adjustReserve(spin, value, bet);
 
         player.addCredits(spin.win);
         player.deleteCredits(spin.lose);
@@ -138,10 +142,14 @@ public class ValuesService {
         return new Gson().toJson(spin);
     }
 
+    private void adjustReserve(Spin spin, int value, int bet){
+        reserve = value - spin.getWin()/bet;
+        System.out.println("Reserve : " + reserve);
+    }
+
     @RequestMapping(value = "/allJackpots")
     public @ResponseBody String getAll() {
         return new Gson().toJson(jackpotService.getAll());
     }
-
 
 }

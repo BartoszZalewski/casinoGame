@@ -1,6 +1,6 @@
 package com.casinoGame.casinoGame;
 
-import com.casinoGame.casinoGame.Core.Player;
+import com.casinoGame.casinoGame.Base.Player;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +14,13 @@ public class ViewController {
         return "welcomePage";
     }
 
-    @RequestMapping("/game/{name}")
+    @RequestMapping("/gamesPanel/{name}")
     public String game(Model model, @PathVariable String name) {
         Session session = new Session(new Player(name, 500));
         SessionRepository.createNew(session);
         model.addAttribute("username", name);
         model.addAttribute("credits", SessionRepository.getPlayer(name).getCredits());
-        return "game";
+        return "gamesPanel";
     }
 
 

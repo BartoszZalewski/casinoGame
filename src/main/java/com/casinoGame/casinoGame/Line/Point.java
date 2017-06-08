@@ -1,4 +1,4 @@
-package com.casinoGame.casinoGame.Core;
+package com.casinoGame.casinoGame.Line;
 
 /**
  * Created by Zalew on 2017-06-01.

@@ -1,4 +1,4 @@
-package com.casinoGame.casinoGame.Core;
+package com.casinoGame.casinoGame.Base;
 
 
 public class Player {

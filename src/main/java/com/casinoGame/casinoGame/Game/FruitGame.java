@@ -1,8 +1,11 @@
 package com.casinoGame.casinoGame.Game;
 
-import com.casinoGame.casinoGame.Core.*;
-import com.casinoGame.casinoGame.GameLogic.FruitGameLogic;
-import com.casinoGame.casinoGame.GameLogic.Logic;
+import com.casinoGame.casinoGame.Base.*;
+import com.casinoGame.casinoGame.Game.Logic.FruitGameLogic;
+import com.casinoGame.casinoGame.Game.Logic.Logic;
+import com.casinoGame.casinoGame.Line.Line;
+import com.casinoGame.casinoGame.Line.Match.MatchLineFromLeft;
+import com.casinoGame.casinoGame.Line.Point;
 import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
 import com.casinoGame.casinoGame.Validations.Validation;
@@ -12,47 +15,52 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.*;
 
 @Controller
 public class FruitGame extends Game{
 
-    public final String NAME = "Fruit Game";
-    public final String PAGE = "fruitGame";
+    public final String NAME = "FruitGame";
+    public final String PAGE = "defaultGame";
 
-    public FruitGame(){
-    }
+    public FruitGame(){}
 
     public FruitGame(Logic logic) {
         super(logic);
     }
 
     public Game create() {
-        List<LineDefinition> lines = Arrays.asList(
-                new LineDefinition(0, Arrays.asList(
+        List<Line> lines = Arrays.asList(
+                new Line(0, Arrays.asList(
                         new Point(0,0),
                         new Point(1,0),
-                        new Point(2,0))
+                        new Point(2,0)),
+                        new MatchLineFromLeft()
                 ),
-                new LineDefinition(1, Arrays.asList(
+                new Line(1, Arrays.asList(
                         new Point(0,1),
                         new Point(1,1),
-                        new Point(2,1))
+                        new Point(2,1)),
+                        new MatchLineFromLeft()
                 ),
-                new LineDefinition(2, Arrays.asList(
+                new Line(2, Arrays.asList(
                         new Point(0,2),
                         new Point(1,2),
-                        new Point(2,2))
+                        new Point(2,2)),
+                        new MatchLineFromLeft()
                 ),
-                new LineDefinition(3, Arrays.asList(
+                new Line(3, Arrays.asList(
                         new Point(0,0),
                         new Point(1,1),
-                        new Point(2,2))
+                        new Point(2,2)),
+                        new MatchLineFromLeft()
                 ),
-                new LineDefinition(4, Arrays.asList(
+                new Line(4, Arrays.asList(
                         new Point(0,2),
                         new Point(1,1),
-                        new Point(2,0))
+                        new Point(2,0)),
+                        new MatchLineFromLeft()
                 )
         );
 
@@ -81,6 +89,8 @@ public class FruitGame extends Game{
                 )
         );
 
+        List<Integer> jokers = Collections.singletonList(7);
+
         List<Integer> bets = Arrays.asList(1, 2, 5, 10, 20, 50, 100, 200, 500);
 
 
@@ -88,16 +98,17 @@ public class FruitGame extends Game{
                 .withLines(lines)
                 .withSymbols(symbolLines)
                 .withValidations(validations)
+                .withJokers(jokers)
                 .withBets(bets)
                 .build();
 
 
         System.out.println(new Gson().toJson(boardDefinition));
 
-        return new Game(NAME, PAGE, new FruitGameLogic(boardDefinition));
+        return new FruitGame(new FruitGameLogic(boardDefinition));
     }
 
-    @RequestMapping(value = "/" + PAGE +"/{name}")
+    @RequestMapping(value = "/" + NAME +"/{name}")
     public String play(Model model, @PathVariable String name) {
         Session session = SessionRepository.getSession(name);
         session.setCurrentGame(create());

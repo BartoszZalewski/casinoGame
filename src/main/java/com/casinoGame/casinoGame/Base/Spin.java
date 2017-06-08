@@ -1,4 +1,4 @@
-package com.casinoGame.casinoGame.Core;
+package com.casinoGame.casinoGame.Base;
 
 
 
@@ -24,6 +24,10 @@ public class Spin {
         events.add(event);
     }
 
+    public int getWin(){
+        return win;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("");
@@ -36,4 +40,7 @@ public class Spin {
         return stringBuilder.toString();
     }
 
+    public List<Event> getEvents() {
+        return events;
+    }
 }

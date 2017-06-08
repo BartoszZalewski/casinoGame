@@ -1,7 +1,7 @@
 package com.casinoGame.casinoGame;
 
 import com.casinoGame.casinoGame.Game.Game;
-import com.casinoGame.casinoGame.Core.Player;
+import com.casinoGame.casinoGame.Base.Player;
 
 public class Session {
 

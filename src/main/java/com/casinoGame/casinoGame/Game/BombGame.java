@@ -1,10 +1,16 @@
 package com.casinoGame.casinoGame.Game;
 
-import com.casinoGame.casinoGame.Core.*;
-import com.casinoGame.casinoGame.GameLogic.BombGameLogic;
-import com.casinoGame.casinoGame.GameLogic.Logic;
+import com.casinoGame.casinoGame.Base.*;
+import com.casinoGame.casinoGame.Game.Logic.BombGameLogic;
+import com.casinoGame.casinoGame.Game.Logic.Logic;
+import com.casinoGame.casinoGame.Line.Line;
+import com.casinoGame.casinoGame.Line.Match.MatchLineFromRight;
+import com.casinoGame.casinoGame.Line.Point;
 import com.casinoGame.casinoGame.Session;
 import com.casinoGame.casinoGame.SessionRepository;
+import com.casinoGame.casinoGame.SpecialSymbol.FreeSpinsSymbol;
+import com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol;
+import com.casinoGame.casinoGame.Validations.HorizontalLineValidation;
 import com.casinoGame.casinoGame.Validations.Validation;
 import com.casinoGame.casinoGame.Validations.VerticalLineValidation;
 import com.google.gson.Gson;
@@ -17,80 +23,89 @@ import java.util.*;
 @Controller
 public class BombGame extends Game{
 
-    public final String NAME = "Bomb Game";
-    public final String PAGE = "bombGame";
+    public final String NAME = "BombGame";
+    public final String PAGE = "defaultGame";
 
-    public BombGame(){
-    }
+    public BombGame(){}
 
     public BombGame(Logic logic) {
         super(logic);
     }
 
     public Game create() {
-        List<LineDefinition> lines = Arrays.asList(
-                new LineDefinition(0, Arrays.asList(
-                        new Point(0,0),
-                        new Point(1,0),
-                        new Point(2,0),
-                        new Point(3,0),
-                        new Point(4,0))
+        List<Line> lines = Arrays.asList(
+                new Line(0,
+                        Arrays.asList(
+                                new Point(0,0),
+                                new Point(1,0),
+                                new Point(2,0),
+                                new Point(3,0),
+                                new Point(4,0)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(1, Arrays.asList(
+                new Line(1, Arrays.asList(
                         new Point(0,1),
                         new Point(1,1),
                         new Point(2,1),
                         new Point(3,1),
-                        new Point(4,1))
+                        new Point(4,1)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(2, Arrays.asList(
+                new Line(2, Arrays.asList(
                         new Point(0,2),
                         new Point(1,2),
                         new Point(2,2),
                         new Point(3,2),
-                        new Point(4,2))
+                        new Point(4,2)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(3, Arrays.asList(
+                new Line(3, Arrays.asList(
                         new Point(0,3),
                         new Point(1,3),
                         new Point(2,3),
                         new Point(3,3),
-                        new Point(4,3))
+                        new Point(4,3)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(4, Arrays.asList(
+                new Line(4, Arrays.asList(
                         new Point(0,4),
                         new Point(1,4),
                         new Point(2,4),
                         new Point(3,4),
-                        new Point(4,4))
+                        new Point(4,4)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(5, Arrays.asList(
+                new Line(5, Arrays.asList(
                         new Point(0,0),
                         new Point(1,1),
                         new Point(2,2),
                         new Point(3,3),
-                        new Point(4,4))
+                        new Point(4,4)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(6, Arrays.asList(
+                new Line(6, Arrays.asList(
                         new Point(0,4),
                         new Point(1,3),
                         new Point(2,2),
                         new Point(3,1),
-                        new Point(4,0))
+                        new Point(4,0)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(7, Arrays.asList(
+                new Line(7, Arrays.asList(
                     new Point(0,0),
                     new Point(1,4),
                     new Point(2,0),
                     new Point(3,4),
-                    new Point(4,0))
+                    new Point(4,0)),
+                        new MatchLineFromRight()
                 ),
-                new LineDefinition(8, Arrays.asList(
+                new Line(8, Arrays.asList(
                         new Point(0,4),
                         new Point(1,0),
                         new Point(2,4),
                         new Point(3,0),
-                        new Point(4,4))
+                        new Point(4,4)),
+                        new MatchLineFromRight()
                 )
         );
 
@@ -126,18 +141,14 @@ public class BombGame extends Game{
                 new SymbolLine(12, 2, 50),
                 new SymbolLine(12, 3, 100),
                 new SymbolLine(12, 4, 200),
-                new SymbolLine(12, 5, 300),
-                new SymbolLine(13, 2, 200),
-                new SymbolLine(13, 3, 600),
-                new SymbolLine(13, 4, 800),
-                new SymbolLine(13, 5, 1000)
+                new SymbolLine(12, 5, 300)
         );
 
         List<Integer> jokers = Collections.singletonList(
                 13
         );
 
-        List<Validation> validations = Collections.singletonList(
+        List<Validation> validations = Arrays.asList(
                 new VerticalLineValidation(
                         new HashMap<Integer, Integer>(){
                             {
@@ -145,9 +156,23 @@ public class BombGame extends Game{
                                 put(11,2);
                                 put(12,1);
                                 put(13,1);
+                                put(14,1);
+                            }
+                        }
+                ),
+                new HorizontalLineValidation(
+                        new HashMap<Integer, Integer>(){
+                            {
+                                put(14,0);
+                                put(14,2);
                             }
                         }
                 )
+
+        );
+
+        List<SpecialSymbol> specialSymbols = Collections.singletonList(
+                new FreeSpinsSymbol(14, "FreeSpin", 3, 7)
         );
 
         List<Integer> bets = Arrays.asList(1, 2, 5, 10, 20, 50, 100, 200, 500);
@@ -155,16 +180,17 @@ public class BombGame extends Game{
         BoardDefinition boardDefinition = new BoardDefinition.Builder(5, 5)
                 .withLines(lines)
                 .withJokers(jokers)
+                .withSpecialSymbols(specialSymbols)
                 .withSymbols(symbolLines)
                 .withValidations(validations)
                 .withBets(bets)
                 .build();
 
 
-        return new Game(NAME, PAGE, new BombGameLogic(boardDefinition));
+        return new BombGame(new BombGameLogic(boardDefinition));
     }
 
-    @RequestMapping(value = "/" + PAGE +"/{name}")
+    @RequestMapping(value = "/" + NAME +"/{name}")
     public String play(Model model, @PathVariable String name) {
         Session session = SessionRepository.getSession(name);
         session.setCurrentGame(create());
@@ -173,7 +199,7 @@ public class BombGame extends Game{
         model.addAttribute("credits", player.getCredits());
         model.addAttribute("bets", session.getGame().getBets());
         model.addAttribute("board", new Gson().toJson(session.getGame().getDefaultBoard()));
-        return "fruitGame";
+        return PAGE;
     }
 
 }

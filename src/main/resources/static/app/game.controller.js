@@ -173,11 +173,11 @@
             for (var i = 0; i < events.length; i++) {
                 var event = events[i];
                     var name = event.name;
-                    if(name === "MatchedLine") {
+                    //if(name === "MatchedLine") {
                         var symbolsInLine = event.symbolsInLine;
-                        var line = event.lineDefinition;
+                        var line = event.line;
                         var lineValue = event.points;
-                        var points = line.pointses;
+                        var points = line.points;
                         var r = getRandomInt(100, 200);
                         var g = getRandomInt(100, 200);
                         var b = getRandomInt(100, 200);
@@ -194,7 +194,7 @@
                             }
                             document.getElementById('svgDiv').innerHTML += svgObj;
                         }
-                    }
+                    //}
             }
         }
 
@@ -247,7 +247,7 @@
 
         function back(){
            var nick = document.getElementById("username").innerHTML;
-           var url = "/game/" + nick;
+           var url = "/gamesPanel/" + nick;
            window.location.replace(url);
         }
     }

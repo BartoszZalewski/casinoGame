@@ -1,14 +1,15 @@
-package com.casinoGame.casinoGame.Core;
+package com.casinoGame.casinoGame.Base;
 
+import com.casinoGame.casinoGame.Line.Line;
+import com.casinoGame.casinoGame.SpecialSymbol.SpecialSymbol;
 import com.casinoGame.casinoGame.Validations.Validation;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
+import java.util.*;
 
 public class BoardDefinition {
     public final int columns;
     public final int rows;
-    public final List<LineDefinition> lines;
+    public final List<Line> lines;
     public final List<SymbolLine> symbolLines;
     public final List<Validation> validations;
     public final List<Integer> jokers;
@@ -27,9 +28,19 @@ public class BoardDefinition {
     }
 
     public List<Integer> getSymbols() {
-        List<Integer> symbols = new ArrayList<>();
-        symbolLines.stream().filter(symbolLine -> !symbols.contains(symbolLine.id)).forEach(symbolLine -> symbols.add(symbolLine.id));
-        return symbols;
+        Set<Integer> symbols = new HashSet<>();
+
+        for(SymbolLine symbolLine : symbolLines) {
+            symbols.add(symbolLine.id);
+        }
+
+        symbols.addAll(jokers);
+
+        for(SpecialSymbol specialSymbol : specialSymbols) {
+            symbols.add(specialSymbol.id);
+        }
+
+        return new ArrayList<>(symbols);
     }
 
     public int getSymbolValue(int id, int length) {
@@ -59,7 +70,7 @@ public class BoardDefinition {
     public static class Builder {
         int columns;
         int rows;
-        List<LineDefinition> lines = new ArrayList<>();
+        List<Line> lines = new ArrayList<>();
         List<SymbolLine> symbolLines = new ArrayList<>();
         List<Validation> validations = new ArrayList<>();
         List<Integer> jokers = new ArrayList<>();
@@ -71,7 +82,7 @@ public class BoardDefinition {
             this.rows = rows;
         }
 
-        public Builder withLines(List<LineDefinition> lines) {
+        public Builder withLines(List<Line> lines) {
             this.lines = lines;
             return this;
         }

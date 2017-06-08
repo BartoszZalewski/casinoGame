@@ -1,7 +1,7 @@
 package com.casinoGame.casinoGame.Jackpot;
 
 
-import com.casinoGame.casinoGame.Core.Event;
+import com.casinoGame.casinoGame.Base.Event;
 
 import java.util.Random;
 
