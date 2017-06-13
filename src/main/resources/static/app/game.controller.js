@@ -12,7 +12,7 @@
         var vm = this;
         var iFrequency = 5000;
         var myInterval = 0;
-        var divSize = 70;
+        var divSize = 90;
         var defaultBoard = '{}';
         vm.board = "{}";
         vm.nextSpin = nextSpin;
@@ -105,8 +105,7 @@
             result.success(function(data, status, header, config){
                 vm.board = data;
                 updateCredits();
-                setBoard();
-                setBoardImgs(vm.board["board"]);
+                spin();
                 setBoardInfo();
                 setLines();
                 getJackpots();
@@ -114,33 +113,81 @@
 
         }
 
+        function spin(){
+            var gameBoard = vm.board["board"];
+            for(var i = 0; i < gameBoard.length; i++) {
+                spinColumn(0, i);
+            }
+        }
+
+        function fillRandom(id){
+            var randomDivs = "";
+            var gameBoard = vm.board["board"];
+            var column = gameBoard[id];
+            var size = getRandomInt(3, 7) * column.length;
+
+            for(var i =0; i< size; i++){
+                var value = Math.floor(Math.random() * 10);
+                var img = '<img style="width: '+divSize+'px; height: '+divSize+'px" src="../images/' + value +'.png">';
+                randomDivs += '<div style=" width: ' + (divSize) + 'px; height: ' + (divSize) + 'px;">'+img+'</div>';
+            }
+
+            for(var k = 0; k < column.length; k++){
+                var value = column[k];
+                var img = '<img style="width: '+divSize+'px; height: '+divSize+'px" src="../images/' + value +'.png">';
+                randomDivs += '<div id="'+(id * gameBoard[0].length + k) + '" style=" width: ' + (divSize) + 'px; height: ' + (divSize) + 'px;">'+img+'</div>';
+            }
+
+            for(var j = 0; j< size; j++){
+                var value = Math.floor(Math.random() * 10);
+                var img = '<img style="width: '+divSize+'px; height: '+divSize+'px" src="../images/' + value +'.png">';
+                randomDivs += '<div style=" width: ' + (divSize) + 'px; height: ' + (divSize) + 'px;">'+img+'</div>';
+            }
+
+            document.getElementById('column'+id).innerHTML = randomDivs;
+            return size;
+        }
+
+        function spinColumn(count, columnId) {
+            $('#column'+columnId).animate({
+                top: -divSize
+            }, 500, 'linear', function () {
+                if (count === 0) {
+                    var slot = fillRandom(columnId),
+                        top = -slot * divSize,
+                        time =  500;
+                    $(this).css({
+                        top: 0
+                    }).animate({
+                        top: top
+                    },time, 'easeOutQuad')
+                } else {
+                    $(this).css({
+                        top: 0
+                    });
+                    spinColumn(count - 1, columnId);
+                }
+            });
+        }
+
         function setDefaultBoard() {
             var gameBoard = JSON.parse(document.getElementById("boardDiv").innerHTML);
             defaultBoard = gameBoard;
-            var columnDiv = '<div id="boardField" style="width: ' + (divSize * gameBoard.length) + 'px; height: ' + (divSize * gameBoard[0].length) + 'px;">';
-            for (var col = 0; col < gameBoard.length; col++) {
-                columnDiv += '<div style="width: ' + (divSize) + 'px; height: ' + (divSize * gameBoard[0].length) + 'px; float: left;">';
-                for (var row = 0; row < gameBoard[col].length; row++) {
-                    columnDiv += '<div id="' + (col * gameBoard[0].length + row) + '" style=" width: ' + (divSize) + 'px; height: ' + (divSize) + 'px;"></div>';
-                }
-                columnDiv += '</div>';
-            }
-            columnDiv += '</div>';
-            document.getElementById('boardDiv').innerHTML = columnDiv;
+            createBoard(gameBoard);
         }
 
-        function setBoard() {
-            var gameBoard = vm.board["board"];
-            var columnDiv = '<div id="boardField" style="width: '+(divSize * gameBoard.length)+'px; height: '+(divSize * gameBoard[0].length)+'px;">';
-            for(var col = 0; col < gameBoard.length; col++) {
-             columnDiv += '<div style="width: '+(divSize)+'px; height: '+(divSize * gameBoard[0].length)+'px; float: left;">';
-                for(var row = 0; row < gameBoard[col].length; row++) {
-                    columnDiv+='<div id="'+(col * gameBoard[0].length + row)+'" style=" width: '+(divSize)+'px; height: '+(divSize)+'px;"></div>';
+        function createBoard(gameBoard) {
+            var columnDiv = '<div id="boardField" style="position: relative; width: ' + (divSize * gameBoard.length) + 'px; height: ' + (divSize * gameBoard[0].length) + 'px;">';
+            for (var col = 0; col < gameBoard.length; col++) {
+                columnDiv += '<div id = "column' + col + '" style="position: relative; width: ' + (divSize) + 'px; height: ' + (divSize * gameBoard[0].length) + 'px; float: left;">';
+                for (var row = 0; row < gameBoard[col].length; row++) {
+                    columnDiv += '<div id="'+(col * gameBoard[0].length + row) + '" style="width: ' + (divSize) + 'px; height: ' + (divSize) + 'px;"></div>';
                 }
                 columnDiv += '</div>';
             }
             columnDiv += '</div>';
             document.getElementById('boardDiv').innerHTML = columnDiv;
+
         }
 
         function setBoardImgs(gameBoard) {

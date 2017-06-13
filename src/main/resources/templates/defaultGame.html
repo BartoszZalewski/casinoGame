@@ -10,6 +10,9 @@
     <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
     <script type="text/javascript" src="/static/app/game.controller.js" th:src="@{/app/game.controller.js}"></script>
     <script type="text/javascript" src="/static/app/view.controller.js" th:src="@{/app/view.controller.js}"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+
 </head>
 <body ng-app="app" ng-controller="GameController as vm">
 <header>
@@ -44,10 +47,10 @@
             </div>
         </div>
 <div id ="centerPanel" style="margin: auto; text-align:center; float: left">
-    <svg id ="svgDiv" width="0" height="0" style="position: fixed;">
+    <svg id ="svgDiv" width="0" height="0" style="position: fixed; z-index: 200">
 
     </svg>
-    <div id="boardDivWrapper" style="display: inline-block;">
+    <div id="boardDivWrapper" style="overflow: hidden; display: inline-block; position: relative;">
         <div id="boardDiv" th:text="${board}">
             {{vm.board}}
         </div>
