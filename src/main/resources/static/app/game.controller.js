@@ -106,8 +106,6 @@
                 vm.board = data;
                 updateCredits();
                 spin();
-                setBoardInfo();
-                setLines();
                 getJackpots();
             });
 
@@ -161,6 +159,8 @@
                     }).animate({
                         top: top
                     },time, 'easeOutQuad')
+                    setBoardInfo();
+                    setLines();
                 } else {
                     $(this).css({
                         top: 0
@@ -219,29 +219,32 @@
             document.getElementById('svgDiv').innerHTML = '';
             for (var i = 0; i < events.length; i++) {
                 var event = events[i];
-                    var name = event.name;
-                    //if(name === "MatchedLine") {
-                        var symbolsInLine = event.symbolsInLine;
-                        var line = event.line;
-                        var lineValue = event.points;
-                        var points = line.points;
-                        var r = getRandomInt(100, 200);
-                        var g = getRandomInt(100, 200);
-                        var b = getRandomInt(100, 200);
-                        for (var j = 0; j < symbolsInLine.length - 1; j++) {
-                            var first = points[symbolsInLine[j]];
-                            var next = points[symbolsInLine[j + 1]];
-                            var x1 = divSize / 2 + first.x * divSize;
-                            var x2 = divSize / 2 + next.x * divSize;
-                            var y1 = divSize / 2 + first.y * divSize;
-                            var y2 = divSize / 2 + next.y * divSize;
-                            svgObj += '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="red" style="stroke:rgb(' + r + ',' + g + ',' + b + ');stroke-width:5"/>';
-                            if (j === 0) {
-                                svgObj += '<text fill="rgb(' + r + ',' + g + ',' + b + ')" font-size="' + divSize / 2 + '" font-family="Verdana" x="' + dist(x1, x2) + '" y="' + dist(y1, y2) + '">' + lineValue + '</text>';
-                            }
-                            document.getElementById('svgDiv').innerHTML += svgObj;
+                var name = event.name;
+                var symbolsInLine = event.symbolsInLine;
+                var line = event.line;
+                var lineValue = event.points;
+                var points = line.points;
+                var r = getRandomInt(100, 200);
+                var g = getRandomInt(100, 200);
+                var b = getRandomInt(100, 200);
+                for (var j = 0; j < symbolsInLine.length; j++) {
+                    var first = points[symbolsInLine[j]];
+                    var id = (first.x * gameBoard[0].length + first.y);
+                    rotateAnimation(id);
+                    if (j !== symbolsInLine.length - 1 && name === "MatchedLine") {
+                        var next = points[symbolsInLine[j + 1]];
+                        var x1 = divSize / 2 + first.x * divSize;
+                        var x2 = divSize / 2 + next.x * divSize;
+                        var y1 = divSize / 2 + first.y * divSize;
+                        var y2 = divSize / 2 + next.y * divSize;
+                        svgObj += '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="red" style="stroke:rgb(' + r + ',' + g + ',' + b + ');stroke-width:5"/>';
+                        if (j === 0) {
+                            svgObj += '<text fill="rgb(' + r + ',' + g + ',' + b + ')" font-size="' + divSize / 2 + '" font-family="Verdana" x="' + dist(x1, x2) + '" y="' + dist(y1, y2) + '">' + lineValue + '</text>';
                         }
-                    //}
+                        document.getElementById('svgDiv').innerHTML += svgObj;
+                    }
+                }
+
             }
         }
 
@@ -297,5 +300,12 @@
            var url = "/gamesPanel/" + nick;
            window.location.replace(url);
         }
+
+        function rotateAnimation(el){
+            var elem = document.getElementById(el);
+            elem.classList.add('rotate');
+        }
+
+
     }
 })();
